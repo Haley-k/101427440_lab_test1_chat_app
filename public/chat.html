@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chat</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to the Chat</h1>
+        <button id="logoutBtn" class="btn btn-danger float-right">Logout</button>
+        <hr />
+        <!-- Room Selection -->
+        <div class="form-group">
+            <label>Select a room:</label>
+            <select id="roomSelect" class="form-control">
+                <option value="devops">DevOps</option>
+                <option value="cloud computing">Cloud Computing</option>
+                <option value="covid19">Covid19</option>
+                <option value="sports">Sports</option>
+                <option value="nodeJS">NodeJS</option>
+            </select>
+            <button id="joinRoomBtn" class="btn btn-success mt-2">Join Room</button>
+            <button id="leaveRoomBtn" class="btn btn-warning mt-2">Leave Room</button>
+        </div>
+
+        <!-- Group Chat Display -->
+        <div id="chat"></div>
+        <div class="typing-indicator" id="typingIndicator"></div>
+
+        <div class="input-group">
+            <input type="text" id="messageInput" class="form-control" placeholder="Type your message" />
+            <div class="input-group-append">
+                <button id="sendBtn" class="btn btn-primary">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Private Message Section -->
+    <div class="card mt-3">
+        <div class="card-header">Private Message</div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="privateMsgUser">To User:</label>
+                <input type="text" id="privateMsgUser" class="form-control" placeholder="Enter recipient's username" />
+            </div>
+            <div class="form-group">
+                <label for="privateMsgInput">Message:</label>
+                <input type="text" id="privateMsgInput" class="form-control" placeholder="Type your private message" />
+            </div>
+            <button id="privateMsgBtn" class="btn btn-primary">Send Private Message</button>
+        </div>
+    </div>
+    </div>
+
+    <!-- Socket.io -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+
+</html>
